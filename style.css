@@ -1,0 +1,107 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gotham', sans-serif;
+    color: #171a20;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    z-index: 100;
+}
+
+.logo {
+    width: 120px;
+}
+
+.center-nav, .right-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.center-nav a, .right-nav a {
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.center-nav a:hover, .right-nav a:hover {
+    background-color: hsla(0, 0%, 0%, 0.05);
+}
+
+/* Hero Section */
+#hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/h_1800,w_2880,c_fit,f_auto,q_auto:best/Model-X-Main-Hero-Desktop-LHD'); /* Placeholder - Replace with your image */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding-top: 100px; /* Adjust for header */
+}
+
+.hero-content h1 {
+    font-size: 40px;
+    margin: 0;
+}
+
+.hero-content p {
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.hero-buttons {
+    margin-bottom: 80px;
+    display: flex;
+    gap: 24px;
+}
+
+.btn-primary, .btn-secondary {
+    width: 260px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #171a20;
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: #f4f4f4;
+    color: #393c41;
+}
+
+.btn-primary:hover {
+    background-color: #393c41;
+}
+
+.btn-secondary:hover {
+    background-color: #e0e0e0;
+}
