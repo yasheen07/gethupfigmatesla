@@ -105,3 +105,31 @@ header {
 .btn-secondary:hover {
     background-color: #e0e0e0;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .center-nav {
+        display: none;
+    }
+
+    .right-nav {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: #fff;
+        width: 250px;
+        height: 100vh;
+        padding: 20px;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    .right-nav.menu-open {
+        display: flex;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+}
