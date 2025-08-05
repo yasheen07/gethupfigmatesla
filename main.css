@@ -212,3 +212,43 @@ footer {
         width: 100%;
     }
 }
+
+/* Mobile Styles (max-width: 768px) */
+@media (max-width: 768px) {
+    .content {
+        padding-top: 20vh; /* Adjust padding for mobile */
+    }
+
+    .buttons {
+        margin-bottom: 5vh; /* Adjust margin for mobile */
+    }
+
+    /* Mobile-specific background images */
+    section.hero-section:nth-of-type(1) {
+        background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Model-3-LHD-Mobile.jpg'); /* Placeholder for mobile Model 3 image */
+    }
+
+    section.hero-section:nth-of-type(2) {
+        background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Model-Y-LHD-Mobile.jpg'); /* Placeholder for mobile Model Y image */
+    }
+
+    section.hero-section:nth-of-type(3) {
+        background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Model-S-LHD-Mobile.jpg'); /* Placeholder for mobile Model S image */
+    }
+
+    section.hero-section:nth-of-type(4) {
+        background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Model-X-LHD-Mobile.jpg'); /* Placeholder for mobile Model X image */
+    }
+
+    section.hero-section:nth-of-type(5) {
+        background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-SolarPanels-Mobile.jpg'); /* Placeholder for mobile Solar Panels image */
+    }
+
+    section.hero-section:nth-of-type(6) {
+        background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-SolarRoof-Mobile.jpg'); /* Placeholder for mobile Solar Roof image */
+    }
+
+    section.hero-section:nth-of-type(7) {
+        background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Accessories-Mobile.jpg'); /* Placeholder for mobile Accessories image */
+    }
+}
