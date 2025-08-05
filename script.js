@@ -1,11 +1,18 @@
 const menuBtn = document.querySelector('.menu-btn');
 const closeBtn = document.querySelector('.close-btn');
-const rightNav = document.querySelector('.right-nav');
+const backdrop = document.querySelector('.backdrop');
+const mobileNav = document.querySelector('.mobile-nav');
 
-menuBtn.addEventListener('click', () => {
-    rightNav.classList.add('menu-open');
-});
+const openMenu = () => {
+    backdrop.classList.add('active');
+    mobileNav.classList.add('active');
+};
 
-closeBtn.addEventListener('click', () => {
-    rightNav.classList.remove('menu-open');
-});
+const closeMenu = () => {
+    backdrop.classList.remove('active');
+    mobileNav.classList.remove('active');
+};
+
+menuBtn.addEventListener('click', openMenu);
+closeBtn.addEventListener('click', closeMenu);
+backdrop.addEventListener('click', closeMenu);

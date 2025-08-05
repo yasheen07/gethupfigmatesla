@@ -5,102 +5,48 @@ body, html {
     font-family: 'Gotham', sans-serif;
     color: #171a20;
     background-color: #fff;
-    overflow-x: hidden;
+    overflow: hidden; /* Prevents scrolling on the body */
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* Header */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 56px;
-    z-index: 100;
-}
-
-.logo {
-    width: 120px;
-}
-
-.center-nav {
-    display: none;
-}
-
-.right-nav {
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: 0;
-    background-color: #fff;
-    width: 250px;
+.container {
     height: 100vh;
-    padding: 20px;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-    z-index: 200;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
 }
 
-.right-nav.menu-open {
-    display: flex;
-}
-
-.close-btn {
-    display: flex;
-    justify-content: flex-end;
-    cursor: pointer;
-}
-
-.menu-btn {
-    cursor: pointer;
-}
-
-
-.center-nav a, .right-nav a {
-    font-weight: 600;
-    padding: 15px 10px;
-    border-radius: 12px;
-    transition: background-color 0.3s ease;
-}
-
-.center-nav a:hover, .right-nav a:hover {
-    background-color: hsla(0, 0%, 0%, 0.05);
-}
-
-/* Hero Section */
-#hero {
+section {
     height: 100vh;
+    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/h_1800,w_2880,c_fit,f_auto,q_auto:best/Model-X-Main-Hero-Desktop-LHD'); /* Placeholder - Replace with your image */
     background-size: cover;
     background-position: center;
-    text-align: center;
-    padding-top: 100px; /* Adjust for header */
+    position: relative;
 }
 
-.hero-content h1 {
+.content {
+    text-align: center;
+    padding-top: 15vh;
+}
+
+.content h1 {
     font-size: 40px;
     margin: 0;
 }
 
-.hero-content p {
+.content p {
     font-size: 14px;
     margin-top: 8px;
 }
 
-.hero-buttons {
-    margin-bottom: 80px;
+.content .subtext {
+    font-size: 12px;
+}
+
+.buttons {
+    margin-bottom: 10vh;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -115,49 +61,118 @@ header {
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-transform: uppercase;
 }
 
 .btn-primary {
-    background-color: #171a20;
+    background-color: rgba(23, 26, 32, 0.8);
     color: #fff;
 }
 
 .btn-secondary {
-    background-color: #f4f4f4;
-    color: #393c41;
+    background-color: rgba(244, 244, 244, 0.65);
+    color: #171a20;
 }
 
-.btn-primary:hover {
-    background-color: #393c41;
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 56px;
+    z-index: 100;
 }
 
-.btn-secondary:hover {
-    background-color: #e0e0e0;
+.logo {
+    width: 120px;
+    fill: #171a20;
+}
+
+.desktop-nav {
+    display: none;
+}
+
+.right-nav .menu-btn {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Mobile Nav */
+.backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 150;
+}
+
+.backdrop.active {
+    display: block;
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Start off-screen */
+    width: 300px;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 200;
+    transition: right 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.mobile-nav.active {
+    right: 0;
+}
+
+.mobile-nav .close-btn {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.mobile-nav a {
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #171a20;
+    font-weight: 600;
+    border-radius: 12px;
+}
+
+.mobile-nav a:hover {
+    background-color: hsla(0, 0%, 0%, 0.05);
 }
 
 /* Desktop Styles */
 @media (min-width: 769px) {
-    .center-nav {
+    .desktop-nav {
         display: flex;
         gap: 20px;
     }
 
-    .right-nav {
-        display: flex;
-        flex-direction: row;
-        position: static;
-        height: auto;
-        width: auto;
-        background-color: transparent;
-        box-shadow: none;
-        padding: 0;
-    }
-
-    .menu-btn, .close-btn {
+    .right-nav .menu-btn {
         display: none;
     }
 
-    .hero-buttons {
+    .buttons {
         flex-direction: row;
         gap: 24px;
     }
