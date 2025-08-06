@@ -1,5 +1,7 @@
+
 /* General Styles */
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     font-family: 'Gotham', sans-serif;
@@ -31,19 +33,22 @@ header {
     width: 120px;
 }
 
-.center-nav, .right-nav {
+.center-nav,
+.right-nav {
     display: flex;
     gap: 20px;
 }
 
-.center-nav a, .right-nav a {
+.center-nav a,
+.right-nav a {
     font-weight: 600;
     padding: 5px 10px;
     border-radius: 12px;
     transition: background-color 0.3s ease;
 }
 
-.center-nav a:hover, .right-nav a:hover {
+.center-nav a:hover,
+.right-nav a:hover {
     background-color: hsla(0, 0%, 0%, 0.05);
 }
 
@@ -58,11 +63,13 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/h_1800,w_2880,c_fit,f_auto,q_auto:best/Model-X-Main-Hero-Desktop-LHD'); /* Placeholder - Replace with your image */
+    background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/h_1800,w_2880,c_fit,f_auto,q_auto:best/Model-X-Main-Hero-Desktop-LHD');
+    /* Placeholder - Replace with your image */
     background-size: cover;
     background-position: center;
     text-align: center;
-    padding-top: 100px; /* Adjust for header */
+    padding-top: 100px;
+    /* Adjust for header */
 }
 
 .hero-content h1 {
@@ -81,7 +88,8 @@ header {
     gap: 24px;
 }
 
-.btn-primary, .btn-secondary {
+.btn-primary,
+.btn-secondary {
     width: 260px;
     padding: 12px 24px;
     border: none;
@@ -129,7 +137,8 @@ header {
 .mobile-nav {
     position: fixed;
     top: 0;
-    right: -300px; /* Start off-screen */
+    right: -300px;
+    /* Start off-screen */
     width: 300px;
     height: 100vh;
     background-color: #fff;
@@ -181,6 +190,32 @@ header {
     }
 
     #hero {
-        padding-top: 15vh; /* Adjust for mobile header */
+        padding-top: 15vh;
+        /* Adjust for mobile header */
     }
+}
+
+#menu-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 12px;
+}
+
+#menu-btn:hover {
+    background-color: hsla(0, 0%, 0%, 0.05);
+}
+
+#close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
