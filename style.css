@@ -1,14 +1,28 @@
-
-.language-selector {
+.search-bar {
     position: relative;
     margin-right: 20px;
 }
 
-.language-selector select {
-    background-color: transparent;
+.search-bar input {
+    background-color: #f4f4f4;
     border: none;
+    border-radius: 12px;
+    padding: 8px 12px;
     font-size: 14px;
-    font-weight: 600;
-    padding: 5px;
+    width: 200px;
+}
+
+.search-bar button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
     cursor: pointer;
+}
+
+.search-bar .tds-icon-search {
+    width: 20px;
+    height: 20px;
 }
