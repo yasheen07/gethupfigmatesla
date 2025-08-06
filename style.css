@@ -1,14 +1,15 @@
-.locations-section {
+
+.model-overview-section {
     padding: 80px 20px;
     text-align: center;
 }
 
-.locations-section h2 {
+.model-overview-section h2 {
     font-size: 28px;
     margin-bottom: 20px;
 }
 
-.locations-section p {
+.model-overview-section p {
     font-size: 16px;
     margin-bottom: 40px;
     max-width: 800px;
@@ -16,18 +17,34 @@
     margin-right: auto;
 }
 
-.map-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    /* 16:9 */
-    height: 0;
-    overflow: hidden;
+.model-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
-.map-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.model-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.model-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.model-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.model-card .btn-primary {
+    margin-top: 15px;
+    width: auto;
+    padding: 10px 20px;
 }
