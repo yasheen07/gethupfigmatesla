@@ -1,19 +1,17 @@
-const menuBtn = document.getElementById('menu-btn');
-const closeBtn = document.getElementById('close-btn');
-const mobileNav = document.querySelector('.mobile-nav');
-const backdrop = document.querySelector('.backdrop');
 
-menuBtn.addEventListener('click', () => {
-    mobileNav.classList.add('active');
-    backdrop.classList.add('active');
+const backToTopBtn = document.getElementById('back-to-top-btn');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        backToTopBtn.style.display = 'block';
+    } else {
+        backToTopBtn.style.display = 'none';
+    }
 });
 
-closeBtn.addEventListener('click', () => {
-    mobileNav.classList.remove('active');
-    backdrop.classList.remove('active');
-});
-
-backdrop.addEventListener('click', () => {
-    mobileNav.classList.remove('active');
-    backdrop.classList.remove('active');
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
