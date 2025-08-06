@@ -1,43 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electric Cars, Solar & Clean Energy | Tesla</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
     <header>
         <a href="#" class="logo">
-            <svg class="tds-icon tds-icon-logo-wordmark tds-site-logo-icon" viewBox="0 0 342 35" xmlns="http://www.w3.org/2000/svg"><path d="M0 .1a9.7 9.7 0 0 0 7 7h11l.5.1v27.6h6.8V7.3L26 7h11a9.8 9.8 0 0 0 7-7H0zm238.6 0h-6.8v34.8H263a9.7 9.7 0 0 0 6-6.8h-34.3V0zm-52.3 6.8c3.6-1 6.6-3.8 7.4-6.9l-38.1.1v20.6h31.1v7.2h-24.4a13.6 13.6 0 0 0-8.7 7h39.9v-21h-31.2v-7h24zm116.2 28h6.7v-14h24.6v14h6.7v-21h-38zM85.3 7h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zm0 13.8h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zm0 14.1h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zM308.5 7h26a9.6 9.6 0 0 0 7-7h-40a9.6 9.6 0 0 0 7 7z" fill="currentColor"></path></svg>
+            <svg class="tds-icon tds-icon-logo-wordmark tds-site-logo-icon" viewBox="0 0 342 35"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0 .1a9.7 9.7 0 0 0 7 7h11l.5.1v27.6h6.8V7.3L26 7h11a9.8 9.8 0 0 0 7-7H0zm238.6 0h-6.8v34.8H263a9.7 9.7 0 0 0 6-6.8h-34.3V0zm-52.3 6.8c3.6-1 6.6-3.8 7.4-6.9l-38.1.1v20.6h31.1v7.2h-24.4a13.6 13.6 0 0 0-8.7 7h39.9v-21h-31.2v-7h24zm116.2 28h6.7v-14h24.6v14h6.7v-21h-38zM85.3 7h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zm0 13.8h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zm0 14.1h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zM308.5 7h26a9.6 9.6 0 0 0 7-7h-40a9.6 9.6 0 0 0 7 7z"
+                    fill="currentColor"></path>
+            </svg>
         </a>
-        <nav class="center-nav">
-            <a href="#">Model S</a>
-            <a href="#">Model 3</a>
-            <a href="#">Model X</a>
-            <a href="#">Model Y</a>
-            <a href="#">Solar Roof</a>
-            <a href="#">Solar Panels</a>
-        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+            <button type="submit"><svg class="tds-icon tds-icon-search" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.71 20.29l-5.47-5.47A8.49 8.49 0 0 0 18 9.5a8.5 8.5 0 1 0-8.5 8.5 8.49 8.49 0 0 0 5.32-1.76l5.47 5.47a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM4 9.5a5.5 5.5 0 1 1 5.5 5.5A5.5 5.5 0 0 1 4 9.5z" fill="currentColor"></path></svg></button>
+        </div>
+        <div class="language-selector">
+            <select>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+            </select>
+        </div>
         <nav class="right-nav">
-            <a href="#">Shop</a>
-            <a href="#">Account</a>
-            <a href="#" id="menu-btn">Menu</a>
+            <a href="#" class="desktop-only">Shop</a>
+            <a href="#" class="desktop-only">Account</a>
+            <button id="menu-btn" class="mobile-only">Menu</button>
         </nav>
     </header>
 
-    <section id="hero">
-        <div class="hero-content">
-            <h1>Model 3</h1>
-            <p>Starting at $32,740</p>
-            <p>After Federal Tax Credit</p>
-        </div>
-        <div class="hero-buttons">
-            <button class="btn-primary">Explore Inventory</button>
-            <button class="btn-secondary">Custom Order</button>
-        </div>
-    </section>
+    <div class="backdrop"></div>
+    <aside class="mobile-nav">
+        <button id="close-btn">&times;</button>
+        <a href="#">Model S</a>
+        <a href="#">Model 3</a>
+        <a href="#">Model X</a>
+        <a href="#">Model Y</a>
+        <a href="#">Solar Roof</a>
+        <a href="#">Solar Panels</a>
+        <a href="#">Shop</a>
+        <a href="#">Account</a>
+    </aside>
+
+    <div class="container">
+        <section class="hero-section" style="background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Model-3-Desktop-LHD.jpg');">
+            <div class="hero-content">
+                <h1>Model 3</h1>
+                <p>Starting at $32,740</p>
+                <p>After Federal Tax Credit</p>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn-primary">Explore Inventory</button>
+                <button class="btn-secondary">Custom Order</button>
+            </div>
+        </section>
+
+        <section class="hero-section" style="background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Model-Y-Desktop-LHD.jpg');">
+            <div class="hero-content">
+                <h1>Model Y</h1>
+                <p>Starting at $43,990</p>
+                <p>After Federal Tax Credit</p>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn-primary">Explore Inventory</button>
+                <button class="btn-secondary">Custom Order</button>
+            </div>
+        </section>
+
+        <section class="hero-section" style="background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Model-S-Desktop-LHD.jpg');">
+            <div class="hero-content">
+                <h1>Model S</h1>
+                <p>Starting at $74,990</p>
+                <p>After Federal Tax Credit</p>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn-primary">Explore Inventory</button>
+                <button class="btn-secondary">Custom Order</button>
+            </div>
+        </section>
+
+        <section class="hero-section" style="background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Model-X-Desktop-LHD.jpg');">
+            <div class="hero-content">
+                <h1>Model X</h1>
+                <p>Starting at $79,990</p>
+                <p>After Federal Tax Credit</p>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn-primary">Explore Inventory</button>
+                <button class="btn-secondary">Custom Order</button>
+            </div>
+        </section>
+
+        <section class="hero-section" style="background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-SolarPanels-Desktop-LHD.jpg');">
+            <div class="hero-content">
+                <h1>Solar Panels</h1>
+                <p>Lowest Cost Solar Panels in America</p>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn-primary">Order Now</button>
+                <button class="btn-secondary">Learn More</button>
+            </div>
+        </section>
+
+        <section class="hero-section" style="background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-SolarRoof-Desktop-LHD.jpg');">
+            <div class="hero-content">
+                <h1>Solar Roof</h1>
+                <p>Produce Clean Energy From Your Roof</p>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn-primary">Order Now</button>
+                <button class="btn-secondary">Learn More</button>
+            </div>
+        </section>
+
+        <section class="hero-section" style="background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Accessories-Desktop-LHD.jpg');">
+            <div class="hero-content">
+                <h1>Accessories</h1>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn-primary">Shop Now</button>
+            </div>
+        </section>
+
+        <footer>
+            <nav>
+                <a href="#">Tesla © 2025</a>
+                <a href="#">Privacy & Legal</a>
+                <a href="#">Contact</a>
+            </nav>
+        </footer>
+    </div>
+
+    <button id="back-to-top-btn">&uarr;</button>
+
+    <div id="cookie-consent">
+        <p>This website uses cookies to ensure you get the best experience on our website. <a href="#">Learn more</a></p>
+        <button id="cookie-accept">Accept</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>

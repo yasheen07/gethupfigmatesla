@@ -1,11 +1,22 @@
 /* General Styles */
-body, html {
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body,
+html {
     margin: 0;
     padding: 0;
     font-family: 'Gotham', sans-serif;
     color: #171a20;
     background-color: #fff;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 a {
@@ -13,52 +24,30 @@ a {
     color: inherit;
 }
 
-/* Header */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 56px;
-    z-index: 100;
-}
-
-.logo {
-    width: 120px;
-}
-
-.center-nav, .right-nav {
-    display: flex;
-    gap: 20px;
-}
-
-.center-nav a, .right-nav a {
-    font-weight: 600;
-    padding: 5px 10px;
-    border-radius: 12px;
-    transition: background-color 0.3s ease;
-}
-
-.center-nav a:hover, .right-nav a:hover {
-    background-color: hsla(0, 0%, 0%, 0.05);
-}
-
-/* Hero Section */
-#hero {
+.container {
     height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.hero-section {
+    height: 100vh;
+    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/h_1800,w_2880,c_fit,f_auto,q_auto:best/Model-X-Main-Hero-Desktop-LHD'); /* Placeholder - Replace with your image */
     background-size: cover;
     background-position: center;
+    position: relative;
+}
+
+.hero-content {
     text-align: center;
-    padding-top: 100px; /* Adjust for header */
+    padding-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero-content h1 {
@@ -72,9 +61,11 @@ header {
 }
 
 .hero-buttons {
-    margin-bottom: 80px;
+    margin-top: 20px;
+    margin-bottom: 10vh;
     display: flex;
-    gap: 24px;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .btn-primary, .btn-secondary {
@@ -86,24 +77,346 @@ header {
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-primary {
-    background-color: #171a20;
+    background-color: rgba(23, 26, 32, 0.8);
     color: #fff;
 }
 
 .btn-secondary {
+    background-color: rgba(244, 244, 244, 0.65);
+    color: #171a20;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 56px;
+    z-index: 100;
+}
+
+.logo {
+    width: 120px;
+    fill: #171a20;
+}
+
+.desktop-only {
+    display: none;
+}
+
+.right-nav .menu-btn {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Mobile Nav */
+.backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 150;
+}
+
+.backdrop.active {
+    display: block;
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Start off-screen */
+    width: 300px;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 200;
+    transition: right 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.mobile-nav.active {
+    right: 0;
+}
+
+.mobile-nav .close-btn {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.mobile-nav a {
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #171a20;
+    font-weight: 600;
+    border-radius: 12px;
+}
+
+.mobile-nav a:hover {
+    background-color: hsla(0, 0%, 0%, 0.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: transparent;
+    color: #5c5e62;
+    font-size: 12px;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
+
+footer nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 20px;
+}
+
+footer a {
+    text-decoration: none;
+    color: #5c5e62;
+}
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+    .desktop-only {
+        display: flex;
+    }
+
+    .mobile-only {
+        display: none;
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+        gap: 24px;
+    }
+
+    .hero-content {
+        padding-top: 10vh;
+    }
+}
+
+/* Mobile Styles (max-width: 768px) */
+@media (max-width: 768px) {
+    .hero-content {
+        padding-top: 20vh; /* Adjust padding for mobile */
+    }
+
+    .hero-buttons {
+        margin-bottom: 5vh; /* Adjust margin for mobile */
+    }
+
+    /* Mobile-specific background images */
+    .hero-section:nth-of-type(1) {
+        background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Model-3-LHD-Mobile.jpg'); /* Placeholder for mobile Model 3 image */
+    }
+
+    .hero-section:nth-of-type(2) {
+        background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Model-Y-LHD-Mobile.jpg'); /* Placeholder for mobile Model Y image */
+    }
+
+    .hero-section:nth-of-type(3) {
+        background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Model-S-LHD-Mobile.jpg'); /* Placeholder for mobile Model S image */
+    }
+
+    .hero-section:nth-of-type(4) {
+        background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Model-X-LHD-Mobile.jpg'); /* Placeholder for mobile Model X image */
+    }
+
+    .hero-section:nth-of-type(5) {
+        background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-SolarPanels-Mobile.jpg'); /* Placeholder for mobile Solar Panels image */
+    }
+
+    .hero-section:nth-of-type(6) {
+        background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-SolarRoof-Mobile.jpg'); /* Placeholder for mobile Solar Roof image */
+    }
+
+    .hero-section:nth-of-type(7) {
+        background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Accessories-Mobile.jpg'); /* Placeholder for mobile Accessories image */
+    }
+}
+
+#menu-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 12px;
+}
+
+#menu-btn:hover {
+    background-color: hsla(0, 0%, 0%, 0.05);
+}
+
+#close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#back-to-top-btn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #171a20;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+#back-to-top-btn:hover {
+    opacity: 0.8;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ccc;
+    border-top-color: #171a20;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#cookie-consent {
+    position: fixed;
+    bottom: -100px; /* Start off-screen */
+    left: 0;
+    right: 0;
     background-color: #f4f4f4;
-    color: #393c41;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    transition: bottom 0.5s ease;
 }
 
-.btn-primary:hover {
-    background-color: #393c41;
+#cookie-consent.active {
+    bottom: 0;
 }
 
-.btn-secondary:hover {
-    background-color: #e0e0e0;
+#cookie-consent p {
+    margin: 0;
+    font-size: 14px;
+}
+
+#cookie-consent a {
+    color: #171a20;
+    text-decoration: underline;
+}
+
+#cookie-accept {
+    background-color: #171a20;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.language-selector {
+    position: relative;
+    margin-right: 20px;
+}
+
+.language-selector select {
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.search-bar {
+    position: relative;
+    margin-right: 20px;
+}
+
+.search-bar input {
+    background-color: #f4f4f4;
+    border: none;
+    border-radius: 12px;
+    padding: 8px 12px;
+    font-size: 14px;
+    width: 200px;
+}
+
+.search-bar button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar .tds-icon-search {
+    width: 20px;
+    height: 20px;
 }
 
 /* Mobile Responsiveness */
