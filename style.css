@@ -1,14 +1,16 @@
-.shop-section {
+
+.energy-section {
     padding: 80px 20px;
     text-align: center;
+    background-color: #f4f4f4;
 }
 
-.shop-section h2 {
+.energy-section h2 {
     font-size: 28px;
     margin-bottom: 20px;
 }
 
-.shop-section p {
+.energy-section p {
     font-size: 16px;
     margin-bottom: 40px;
     max-width: 800px;
@@ -16,13 +18,13 @@
     margin-right: auto;
 }
 
-.product-grid {
+.energy-product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
-.product-card {
+.energy-product-card {
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -30,24 +32,24 @@
     text-align: center;
 }
 
-.product-card img {
+.energy-product-card img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
     margin-bottom: 15px;
 }
 
-.product-card h3 {
+.energy-product-card h3 {
     font-size: 22px;
     margin-bottom: 10px;
 }
 
-.product-card p {
+.energy-product-card p {
     font-size: 16px;
     margin-bottom: 15px;
 }
 
-.product-card .btn-primary {
+.energy-product-card .btn-primary {
     width: auto;
     padding: 10px 20px;
 }
