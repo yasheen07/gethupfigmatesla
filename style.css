@@ -1,29 +1,41 @@
-
-.cta-section {
+.financial-services-section {
     padding: 80px 20px;
     text-align: center;
-    background-color: #171a20;
-    color: #fff;
 }
 
-.cta-section h2 {
-    font-size: 32px;
+.financial-services-section h2 {
+    font-size: 28px;
     margin-bottom: 20px;
 }
 
-.cta-section p {
-    font-size: 18px;
+.financial-services-section p {
+    font-size: 16px;
     margin-bottom: 40px;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.cta-section .btn-primary {
-    background-color: #fff;
-    color: #171a20;
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
-.cta-section .btn-primary:hover {
-    background-color: #e0e0e0;
+.service-item {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+}
+
+.service-item h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    font-size: 16px;
+    margin-bottom: 0;
 }
