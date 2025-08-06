@@ -105,3 +105,21 @@ header {
 .btn-secondary:hover {
     background-color: #e0e0e0;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .center-nav {
+        display: none;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 80%; /* Adjust as needed */
+        max-width: 300px; /* Optional: set a max-width for larger mobile devices */
+        margin: 0 auto; /* Center the buttons */
+    }
+}
